@@ -1,0 +1,75 @@
+
+Destak.pt|http://feeds.destak.pt/DestakRSS
+Diário de Notícias|http://feeds.dn.pt/DN-Economia
+Diário de Notícias|http://feeds.dn.pt/DN-Globo
+Diário de Notícias|http://feeds.dn.pt/DN-Pessoas
+Diário de Notícias - Portugal|http://feeds.dn.pt/DN-PORTUGAL
+Exame Informática – Visão|https://visao.sapo.pt/exameinformatica/feed/
+Expresso|http://aeiou.expresso.pt/static/rss/expresso-geral.xml
+Expresso|http://aeiou.expresso.pt/static/rss/multimedia_23430.xml
+Expresso|Coronavírus|https://rss.app/feeds/j4jsLKI0iV3lJS4S.xml
+Expresso|Economia|https://node2.feed43.com/4873435518470345.xml
+Expresso|Exclusivos|https://node2.feed43.com/0663516775738411.xml
+Expresso|Internacional|https://feed43.com/5755378331838471.xml
+Expresso|Opinião|https://node2.feed43.com/2200558378186228.xml
+Expresso|Últimas|https://feed43.com/2507831377101575.xml
+Expresso|Últimas|https://feed43.com/7304706878641824.xml
+Fotografia|http://www.dnoticias.pt/rss/multimedia/fotografias.xml
+fugasb|http://fugaspublico.blogspot.com/feeds/posts/default
+History Today Feed|http://www.historytoday.com/feed/rss.xml
+homepage|https://node2.feed43.com/6041410445207554.xml
+Hubble - News feed|http://hubblesite.org/newscenter/newscenter_rss.php
+Jornal de Notícias|http://feeds.jn.pt/JN-ECONOMIA
+Jornal de Notícias|http://feeds.jn.pt/JN-GENTE
+Jornal de Notícias|http://feeds.jn.pt/JN-MUNDO
+Jornal de Notícias|http://feeds.jn.pt/JN-NACIONAL
+Jornal de Notícias|http://feeds.jn.pt/JN-PAIS
+Jornal de Notícias|http://feeds.jn.pt/JN-ULTIMAS
+Jornal i|http://ionline.sapo.pt/rss.xml
+Jornal i|http://www.ionline.pt/rss.xml
+Jornal O DIABO|http://jornaldiabo.com/feed/
+Latest News Articles from Techworld|http://www.techworld.com/news/rss
+Loja Público: Novos Produtos|http://loja.publico.pt/rss.php?type=rss
+Lusa Economia|https://node2.feed43.com/0451363851725844.xml
+Lusa Internacional|https://feed43.com/6430375742110304.xml
+Lusa Nacional|https://node2.feed43.com/1022510454006454.xml
+noticias RTP.PT|https://www.rtp.pt/noticias/rss
+Paul Krugman|https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/column/paul-krugman/rss.xml
+Politics, Policy, Political News Top Stories|http://www.politico.com/rss/politicopicks.xml
+PÚBLICO - Ecosfera|http://feeds.feedburner.com/PublicoEcosfera
+Publico_Ciencia|http://feeds.feedburner.com/Publico_ciencia
+Renascença - A par com o mundo.|https://feed43.com/3524484206835862.xml
+Renascença - Economia|https://rr.sapo.pt/rss/rssfeed.aspx?fid=86
+Renascença - Mundo|https://rr.sapo.pt/rss/rssfeed.aspx?fid=88
+Renascença - Noticias|http://rr.sapo.pt/rss/rssfeed.aspx?section=section_noticias
+Renascença - País|https://rr.sapo.pt/rss/rssfeed.aspx?fid=6
+Renascença - Política|https://rr.sapo.pt/rss/rssfeed.aspx?fid=85
+Renascença - Vida|https://rr.sapo.pt/rss/rssfeed.aspx?fid=89
+Reuters News|http://feeds.reuters.com/Reuters/worldNews
+Roma Antiga|https://feedfry.com/rss/11ea9b0f620f8a78b1c80d9bbbc45292
+RTP Notícias / Geral / Últimas|http://www.rtp.pt/noticias/index.php?headline=204&visual=58
+SÁBADO|http://www.sabado.pt/rss.html
+SOL : ECONOMIA|https://node2.feed43.com/1065033264615068.xml
+SOL : MUNDO|https://node2.feed43.com/2056133661673257.xml
+SOL : OPINIÃO|https://node2.feed43.com/3746136444346712.xml
+SOL : POLÍTICA|https://node2.feed43.com/7504638473657048.xml
+SOL : SOCIEDADE|https://node2.feed43.com/6506288843763355.xml
+Speaking of Science|http://feeds.washingtonpost.com/rss/rss_speaking-of-science
+TIME|http://feeds.feedburner.com/time/world
+Today's WorldView from The Washington Post|https://feed43.com/0757433160454014.xml
+Today's WorldView from The Washington Post|https://rss.app/feeds/N1UqSpDQOy3tpG9c.xml
+TSF - Rádio Notícias|http://feeds.tsf.pt/TSF-Internacional
+TSF - Rádio Notícias|http://feeds.tsf.pt/TSF-Mundo
+TSF - Rádio Notícias|http://feeds.tsf.pt/TSF-Portugal
+TSF - Rádio Notícias|http://feeds.tsf.pt/TSF-Ultimas
+TVI|http://www.tvi.iol.pt/rss.html
+UK headlines|http://www.telegraph.co.uk/news/uknews/rss
+Vídeo|http://www.dnoticias.pt/rss/multimedia/videos.xml
+Visão|http://feeds.feedburner.com/visao-geral
+Visão|https://visao.sapo.pt/feed/
+War News Updates|http://feeds.feedburner.com/WarNewsUpdates
+Washington Post - National|http://feeds.washingtonpost.com/rss/national
+Washington Post - Opinions|http://feeds.washingtonpost.com/rss/opinions
+Washington Post - Politics|http://feeds.washingtonpost.com/rss/politics
+Washington Post - World|http://feeds.washingtonpost.com/rss/world
+WSJ.com: World News|https://feeds.a.dj.com/rss/RSSWorldNews.xml
