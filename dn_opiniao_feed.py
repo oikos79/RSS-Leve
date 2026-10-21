@@ -35,8 +35,21 @@ REL_RE = re.compile(r"^(\d+)\s+(minutos?|horas?|dias?|semanas?)$", re.I)
 ABS_RE = re.compile(r"^(\d{1,2})\s+([A-Za-zçÇ]{3})\.?\s+(\d{4})$")
 
 
+# Ligações que parecem artigos de opinião (exclui a própria página-índice e subsecções)
+ARTICLE_RE = re.compile(
+    r"(/opiniao-dn/(?!opiniao/?$|sociedade-aberta/?$|cartas-dos-leitores/?$)[^/?#]+"
+    r"|/opiniao-dn/sociedade-aberta/[^/?#]+"
+    r"|dinheirovivo\.dn\.pt/opiniao/[^/?#]+)"
+)
+
+
 def fetch(url, timeout=30):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/124.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml",
+        "Accept-Language": "pt-PT,pt;q=0.9",
+    })
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read().decode(r.headers.get_content_charset() or "utf-8", "replace")
 
@@ -81,6 +94,8 @@ class OpinionParser(HTMLParser):
                 self.events.append(("title", text, href))
             elif "/author/" in href:
                 self.events.append(("author", text, href))
+            elif ARTICLE_RE.search(href) and len(text) >= 12:
+                self.events.append(("link", text, href))
         elif tag in ("div", "span", "p", "li", "section", "article"):
             self._flush_text()
 
@@ -114,6 +129,8 @@ def extract_items(html, base=PAGE_URL):
     ev = p.events
     now = datetime.now(LISBON)
     titles = [i for i, e in enumerate(ev) if e[0] == "title"]
+    if not titles:  # estrutura diferente: usa as ligações que parecem artigos
+        titles = [i for i, e in enumerate(ev) if e[0] == "link"]
     items, seen = [], set()
     for n, i in enumerate(titles):
         end = titles[n + 1] if n + 1 < len(titles) else len(ev)
@@ -208,6 +225,12 @@ def main():
     html = open(args.input, encoding="utf-8").read() if args.input else fetch(args.url)
     items = extract_items(html, args.url)
     if not items:
+        snippet = " ".join(re.sub(r"<script.*?</script>|<style.*?</style>", " ", html, flags=re.S).split())
+        print("--- DIAGNÓSTICO ---", file=sys.stderr)
+        print(f"tamanho do HTML: {len(html)} caracteres", file=sys.stderr)
+        print(f"<a href>: {html.count('<a ')}, /author/: {html.count('/author/')}, "
+              f"/opiniao-dn/: {html.count('/opiniao-dn/')}, <h3: {html.count('<h3')}", file=sys.stderr)
+        print(f"início do HTML (sem scripts): {snippet[:600]}", file=sys.stderr)
         sys.exit("Nenhum artigo encontrado: a estrutura da página pode ter mudado.")
     if args.exact_dates:
         apply_exact_dates(items, args.cache)
