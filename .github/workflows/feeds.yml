@@ -22,10 +22,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Recuperar datas já descobertas
+        uses: actions/cache@v4
+        with:
+          path: estado.json
+          key: estado-${{ github.run_id }}
+          restore-keys: estado-
       - name: Gerar feed de Opinião do DN
         run: |
           mkdir -p site
           python dn_opiniao_feed.py -o site/opiniao-dn.atom
+      - name: Gerar os restantes feeds
+        continue-on-error: true
+        run: python gerar_feeds.py --config feeds.json --out site --state estado.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
