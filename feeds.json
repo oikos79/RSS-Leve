@@ -62,7 +62,10 @@
   {"nome": "TSF – Tudo (via Google Notícias)", "url": "https://news.google.com/rss/search?q=site:tsf.pt+when:2d&hl=pt-PT&gl=PT&ceid=PT:pt-150", "pagina": "https://www.tsf.pt/"},
   {"nome": "TSF – Mundo (via Google Notícias)", "url": "https://news.google.com/rss/search?q=site:tsf.pt/mundo+when:2d&hl=pt-PT&gl=PT&ceid=PT:pt-150", "pagina": "https://www.tsf.pt/mundo"},
   {"nome": "TSF – Economia (via Google Notícias)", "url": "https://news.google.com/rss/search?q=site:tsf.pt/economia+when:2d&hl=pt-PT&gl=PT&ceid=PT:pt-150", "pagina": "https://www.tsf.pt/economia"},
-  {"nome": "Visão – Tudo (via Google Notícias)", "url": "https://news.google.com/rss/search?q=site:visao.pt+when:3d&hl=pt-PT&gl=PT&ceid=PT:pt-150", "pagina": "https://visao.pt/"}
+  {"nome": "Visão – Tudo (via Google Notícias)", "url": "https://news.google.com/rss/search?q=site:visao.pt+when:3d&hl=pt-PT&gl=PT&ceid=PT:pt-150", "pagina": "https://visao.pt/"},
+    {"nome": "Washington Post – Geral (via Google Notícias)", "url": "https://news.google.com/rss/search?q=site:washingtonpost.com+when:1d&hl=en-US&gl=US&ceid=US:en", "pagina": "https://www.washingtonpost.com/"},
+  {"nome": "Washington Post – Mundo (via Google Notícias)", "url": "https://news.google.com/rss/search?q=site:washingtonpost.com/world+when:2d&hl=en-US&gl=US&ceid=US:en", "pagina": "https://www.washingtonpost.com/world/"},
+  {"nome": "Washington Post – Opinião (via Google Notícias)", "url": "https://news.google.com/rss/search?q=site:washingtonpost.com/opinions+when:2d&hl=en-US&gl=US&ceid=US:en", "pagina": "https://www.washingtonpost.com/opinions/"}
  ],
  "paginas": [
   {"nome": "DN – Economia", "slug": "dn-economia", "url": "https://www.dn.pt/economia", "include": "^/economia/[^/]+$"},
