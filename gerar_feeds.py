@@ -198,17 +198,17 @@ def build_opml(feeds):
     opml = ET.Element("opml", {"version": "2.0"})
     ET.SubElement(ET.SubElement(opml, "head"), "title").text = "RSS Leve"
     body = ET.SubElement(opml, "body")
-    for name, slug, page in feeds:
+    for name, xml_url, page in feeds:
         ET.SubElement(body, "outline", {"text": name, "title": name, "type": "rss",
-                                         "xmlUrl": f"{BASE}/{slug}.atom", "htmlUrl": page})
+                                         "xmlUrl": xml_url, "htmlUrl": page})
     ET.indent(opml)
     return ET.tostring(opml, encoding="utf-8", xml_declaration=True)
 
 
 def build_index(rows, now):
     trs = []
-    for name, slug, page, status, ok in rows:
-        link = f'<a href="{escape(slug)}.atom">{escape(slug)}.atom</a>' if ok else "—"
+    for name, href, page, status, ok in rows:
+        link = f'<a href="{escape(href)}">{escape(href.replace(BASE + "/", ""))}</a>' if ok else "—"
         mark = "✅" if ok else "❌"
         trs.append(f"<tr><td>{mark}</td><td>{escape(name)}</td><td>{link}</td>"
                    f'<td><a href="{escape(page)}">página original</a></td><td>{escape(status)}</td></tr>')
@@ -276,8 +276,13 @@ def main():
     rows, good = [], []
 
     for fx in cfg.get("fixos", []):  # feeds feitos por outro script
-        good.append((fx["nome"], fx["slug"], fx["url"]))
-        rows.append((fx["nome"], fx["slug"], fx["url"], "feito por dn_opiniao_feed.py", True))
+        mine = f"{BASE}/{fx['slug']}.atom"
+        good.append((fx["nome"], mine, fx["url"]))
+        rows.append((fx["nome"], mine, fx["url"], "feito por dn_opiniao_feed.py", True))
+
+    for of in cfg.get("oficiais", []):  # feeds oficiais que já funcionam: só se listam
+        good.append((of["nome"], of["url"], of.get("pagina", of["url"])))
+        rows.append((of["nome"], of["url"], of.get("pagina", of["url"]), "feed oficial do site", True))
 
     for f in cfg.get("paginas", []):
         name, slug, page = f["nome"], f["slug"], f["url"]
@@ -285,10 +290,11 @@ def main():
             items = process(f, state, args.max_dates, now)
             with open(os.path.join(args.out, f"{slug}.atom"), "wb") as fh:
                 fh.write(build_atom(name, slug, page, items))
-            rows.append((name, slug, page, f"{len(items)} artigos", True))
-            good.append((name, slug, page))
+            mine = f"{BASE}/{slug}.atom"
+            rows.append((name, mine, page, f"{len(items)} artigos", True))
+            good.append((name, mine, page))
         except Exception as e:
-            rows.append((name, slug, page, f"{type(e).__name__}: {str(e)[:120]}", False))
+            rows.append((name, "", page, f"{type(e).__name__}: {str(e)[:120]}", False))
         print(("OK   " if rows[-1][4] else "FALHA"), slug, "-", rows[-1][3])
 
     cutoff = now - timedelta(days=90)  # esquece artigos antigos
@@ -305,8 +311,8 @@ def main():
     if summary:
         with open(summary, "a", encoding="utf-8") as fh:
             fh.write("## Feeds gerados\n\n| | Feed | Estado |\n|---|---|---|\n")
-            for name, slug, page, status, ok in rows:
-                fh.write(f"| {'✅' if ok else '❌'} | {name} (`{slug}`) | {status} |\n")
+            for name, href, page, status, ok in rows:
+                fh.write(f"| {'✅' if ok else '❌'} | {name} | {status} |\n")
     print(f"{sum(r[4] for r in rows)}/{len(rows)} feeds gerados")
 
 
