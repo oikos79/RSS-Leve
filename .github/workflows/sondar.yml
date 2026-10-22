@@ -15,4 +15,4 @@ jobs:
         with:
           python-version: "3.12"
       - name: Sondar sites e secções
-        run: python sondar.py feeds.json
+        run: python sondar.py sondagem.json
